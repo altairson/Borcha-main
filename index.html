@@ -23,7 +23,7 @@
                 <button id="privacy_btn" class="nav_btn">Privacy</button>
             </div>
             <div class="profile">
-                <b data-id="0" class="user">Guest</b>
+                <b data-id="0" id="user">Guest</b>
             </div>
         </nav>
     </header>
@@ -59,7 +59,9 @@
         function onTelegramAuth(user) {
             if (user) {
                 toggleBackground(false);
-                alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+                $("#user")[0].innerText = user.first_name;
+                $("#user")[0].attributes["data-id"].value = user.id;
+                $("#user")[0].attributes["data-username"] = user.username;
             }
             
         }
