@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- link jquery lib here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+     <!-- include fonts library -->
+     <script src="https://kit.fontawesome.com/61b7697622.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./css/main.css">
+
+    <title>Borcha</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <button id="main_btn" class="nav_btn active">Home</button>
+                <button id="editor_btn" class="nav_btn">Editor</button>
+                <button id="privacy_btn" class="nav_btn">Privacy</button>
+            </div>
+            <div class="profile">
+                <b data-id="0" class="user">Guest</b>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="content">
+            <div id="main" class="page">main</div>
+            <div id="editor" class="page hidden">
+                <div class="login">
+                    <h5>Sign up with your Telegram.</h5>
+                    <div class="tg-btn">
+                        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="weeotc_bot" data-size="medium" data-userpic="false" data-onauth="onTelegramAuth(user)"></script>
+                    </div>
+                </div>
+                <div class="background"></div>
+            </div>
+            <div id="privacy" class="page hidden">privacy</div>
+        </div>
+        
+    </main>
+    <footer>
+        <div class="socials">
+            <a href="#">I</a>
+            <a href="#">T</a>
+        </div>
+        <div class="options">
+            <i class="fa-solid fa-layer-group"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-globe"></i>
+        </div>
+    </footer>
+    <script src="./js/main.js"></script>
+    <script>
+        function onTelegramAuth(user) {
+            if (user) {
+                toggleBackground(false);
+                alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+            }
+            
+        }
+
+        function toggleBackground(show) {
+            if (show) {
+                $(".background").addClass("hidden");
+            }
+            else {
+                $(".background").removeClass("hidden");
+            }
+            
+        }
+    </script>
+</body>
+</html>
