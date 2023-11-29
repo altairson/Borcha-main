@@ -61,9 +61,8 @@
                 toggleBackground(false);
                 $("#user")[0].innerText = user.first_name + " " + user.last_name;
                 $("#user")[0].attributes["data-id"].value = user.id;
-                $("#user")[0].attributes["data-username"] = user.username;
+                $("#user")[0].attributes["data-username"].value = user.username;
             }
-            
         }
 
         function toggleBackground(show) {
